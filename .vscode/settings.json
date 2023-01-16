@@ -1,4 +1,5 @@
 {
     "ecl.launchConfiguration": "not found",
-    "ecl.targetCluster": {}
+    "ecl.targetCluster": {},
+    "workbench.colorCustomizations": {}
 }
