@@ -4,7 +4,7 @@ const UserDetailsSchema = new mongoose.Schema({
     metamask_ID:String,
     owned_NFTs:String,
     created_NFTs: [{type: mongoose.Schema.Types.ObjectId, ref: 'NFT_token'}],
-    profile_image:Buffer,    
+    profile_image:Image (PNG , JPEG),    
 
 
     favorite_NFTs: [{type: mongoose.Schema.Types.ObjectId, ref: 'NFT_token'}],

@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-require('dotenv').config();
-const mongoUrL = process.env.MONGO_URL;
 
 app.use(express.json())
 const cors= require("cors");
 app.use(cors());
-
+const mongoUrL=
+"mongodb+srv://gp:gp@cluster0.3bofrpb.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoUrL,{

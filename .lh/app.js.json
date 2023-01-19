@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1674143287848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1674143287848,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst app = express();\r\nconst mongoose = require(\"mongoose\");\r\nrequire('dotenv').config();\r\nconst mongoUrL = process.env.MONGO_URL;\r\n\r\napp.use(express.json())\r\nconst cors= require(\"cors\");\r\napp.use(cors());\r\n\r\n\r\nmongoose\r\n  .connect(mongoUrL,{\r\n    useNewUrlParser: true,\r\n})\r\n .then(() => {console.log(\"Connected to database\");\r\n})\r\n.catch((e) => console.log(e));\r\n\r\nrequire(\"./userDetails.js\")\r\nconst User = mongoose.model(\"UserInfo\");\r\napp.post(\"/register\", async (req, res) => {\r\n    const { user_name,\r\n        metamask_ID,\r\n        owned_NFTs,\r\n        created_NFTs,\r\n        profile_image,    \r\n    \r\n    \r\n        favorite_NFTs,\r\n    \r\n    \r\n        NFT_collections ,} = req.body;\r\n        \r\n    try{\r\n        await User.create({ \r\n            user_name,\r\n            metamask_ID,\r\n            owned_NFTs,\r\n            created_NFTs,\r\n            profile_image,    \r\n        \r\n        \r\n            favorite_NFTs,\r\n        \r\n        \r\n            NFT_collections ,});\r\n             res.send({ status:\"ok\"})\r\n       } catch (error){\r\n       res.send({ status:\"error\"})\r\n       }\r\n    });\r\n\r\n\r\n          \r\n\r\napp.listen(6079,()=> {\r\n    console.log(\"server started\");\r\n});\r\n\r\n\r\n\r\n\r\n\r\n"
+        }
+    ]
+}
